@@ -18,6 +18,7 @@ public class Act11 {
     public static void main(String[] args) {
         int opcion;
         int x;
+        int y;
         Scanner entrada = new Scanner(System.in);
         
         do{
@@ -29,22 +30,54 @@ public class Act11 {
                     System.out.print("Dame el valor del radio: ");
                     x = entrada.nextInt();
                     Circle circle = new Circle(x);
-                    System.out.println("Area del ciculo: "+circle.area());
-                    System.out.println("Perimetro del circulo: "+circle.perimeter());
+                    System.out.println("Eligio el circulo\n Las opciones son:\n 1.Medir area\n 2.Medir perimetro");
+                    System.out.print("dame la opcion que deseas: ");
+                    y = entrada.nextInt();
+                    switch(y){
+                        case 1: 
+                            System.out.println("Area del ciculo: "+circle.area());
+                            break;
+                        case 2:
+                            System.out.println("Perimetro del circulo: "+circle.perimeter());
+                        default:
+                            System.out.println("Esa no es una opción");
+                    }
                     break;
                 case 2:
                     System.out.print("Dame el valor del lado: ");
                     x = entrada.nextInt();
                     Square square = new Square(x);
-                    System.out.println("Area del cuadrado: "+square.area());
-                    System.out.println("Perimetro del cuadrado: "+square.perimeter());
+                    System.out.println("Eligio el cuadrado\n Las opciones son:\n 1.Medir area\n 2.Medir perimetro");
+                    System.out.print("dame la opcion que deseas: ");
+                    y = entrada.nextInt();
+                    switch(y){
+                        case 1: 
+                            System.out.println("Area del cuadrado: "+square.area());
+                            break;
+                        case 2:
+                            System.out.println("Perimetro del cuadrado: "+square.perimeter());
+                            break;
+                        default:
+                            System.out.println("Esa no es una opción");
+                    }
                     break;
                 case 3:
                     System.out.print("Dame el valor del lado: ");
                     x = entrada.nextInt();
                     Triangle triangle = new Triangle(x);
-                    System.out.println("Area del trinagulo: "+triangle.area());
-                    System.out.println("Perimetro del triangulo: "+triangle.perimeter());
+                    System.out.println("Eligio el cuadrado\n Las opciones son:\n 1.Medir area\n 2.Medir perimetro");
+                    System.out.print("dame la opcion que deseas: ");
+                    y = entrada.nextInt();
+                    switch(y){
+                        case 1: 
+                            System.out.println("Area del trinagulo: "+triangle.area());
+                            break;
+                        case 2:
+                            System.out.println("Perimetro del triangulo: "+triangle.perimeter());
+                            break;
+                        default:
+                            System.out.println("Esa no es una opción");
+                    }
                     break;
                 case 4:
                     System.out.println("Adios");
