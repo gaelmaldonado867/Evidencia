@@ -27,7 +27,8 @@ public class AddressBook {
         this.filePath = filePath;
     }
     public void load(){
-        try(BufferedReader reader = new BufferedReader(new FileReader(this.filePath))){
+        String inputFilename = "contactos.txt";
+        try(BufferedReader reader = new BufferedReader(new FileReader(inputFilename))){
             String line;
             while((line= reader.readLine()) != null){
                 String [] contact = line.split(":");
