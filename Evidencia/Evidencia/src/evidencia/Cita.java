@@ -18,7 +18,7 @@ public class Cita {
         public Cita(String fecha, Paciente paciente, Doctor doctor) {
         this.fecha = fecha;
         this.paciente = paciente;
-        this.doctor = doctor;
+        this.doctor =  doctor;
     }
 
     public String getFecha() {
@@ -31,9 +31,11 @@ public class Cita {
         return doctor;
     }
     public void agregarCita() {
-        
+       Admin admin = new Admin();
+        admin.agregarCita();
     }
     public void eliminarCita() {
-        
+        Admin admin = new Admin();
+        admin.eliminarCita();
     }
 }

@@ -19,7 +19,7 @@ public class Usuario {
      public String getIdentificador(){
         return identificador;
     }
-    private String getContrasena(){
+    public String getContrasena(){
         return contrasena;
     }
 }
