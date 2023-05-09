@@ -20,7 +20,7 @@ Para crear una cita debe de ingresar los siguientes datos:
 
 * Fecha
 * Hora
-* Motivo de la cita
+* Doctor
 
 # Créditos
 Carlo Gael Bañuelos Maldonado 2616152
