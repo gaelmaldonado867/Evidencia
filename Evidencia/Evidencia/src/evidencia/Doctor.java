@@ -23,6 +23,10 @@ public class Doctor {
         this.identificador = identificador;
         this.contrasena = contrasena;
     }
+
+    Doctor() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     public String getNombre() {
         return nombre;
     }

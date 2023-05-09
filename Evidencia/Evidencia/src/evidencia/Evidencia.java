@@ -17,6 +17,9 @@ public class Evidencia {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+
+}
+    static void Menu(){
         Admin admin = new Admin();
         Scanner entrada = new Scanner(System.in);
         ArrayList<Usuario> usuarios = new ArrayList<>();
@@ -66,13 +69,16 @@ public class Evidencia {
                                         admin.eliminarCita();
                                         break;
                                     case 7:
-                                        
+                                        Paciente paciente = new Paciente();
+                                        paciente.mostrarInformacion();
                                         break;
                                     case 8:
-                                        
+                                        Doctor doctor = new Doctor();
+                                        doctor.mostrarInformacion();
                                         break;
                                     case 9:
-                                        
+                                        Cita cita = new Cita();
+                                        cita.mostrarInformacion();
                                         break;
                                     case 10:
                                         System.out.println("Hasta luego");
@@ -85,8 +91,7 @@ public class Evidencia {
     }catch(Exception e){
     
     }
+    }
 }
-}
-
 ///java -jar <path>
 

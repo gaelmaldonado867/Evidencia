@@ -21,6 +21,10 @@ public class Cita {
         this.doctor =  doctor;
     }
 
+    Cita() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     public String getFecha() {
         return fecha;
     }
@@ -37,5 +41,10 @@ public class Cita {
     public void eliminarCita() {
         Admin admin = new Admin();
         admin.eliminarCita();
+    }
+    public void mostrarInformacion(){
+        System.out.println("Fecha: "+fecha);
+        System.out.println("Paciente: "+ paciente);
+        System.out.println("Doctor: "+ doctor);
     }
 }
