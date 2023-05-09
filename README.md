@@ -23,5 +23,8 @@ Para crear una cita debe de ingresar los siguientes datos:
 * Motivo de la cita
 
 # Créditos
-
+Carlo Gael Bañuelos Maldonado 2616152
 # Licencia
+Product Version: Apache NetBeans IDE 15
+
+Java: 1.8.0_351; Java HotSpot(TM) 64-Bit Server VM 25.351-b10
