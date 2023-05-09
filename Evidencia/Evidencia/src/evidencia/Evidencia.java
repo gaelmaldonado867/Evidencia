@@ -4,6 +4,9 @@
  */
 package evidencia;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  *
  * @author Gael
@@ -14,7 +17,12 @@ public class Evidencia {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+
+        
     }
     
 }
+
+
+///java -jar <path>
+

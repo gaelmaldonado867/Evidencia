@@ -4,28 +4,37 @@
  */
 package evidencia;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Gael
  */
 public class Paciente {
     private String nombre;
-    private String correo;
     private String identificador;
+    private String contrasena;
     
-    public Paciente(String nombre, String correo, String identificador){
+    public Paciente(String identificador, String contrasena, String nombre){
         this.nombre = nombre;
-        this.correo = correo;
         this.identificador = identificador;
+        this.contrasena = contrasena;
     }
     public String getNombre(){
         return nombre;
+    }   
+    public void mostrarInformacion() {
+        System.out.println("Nombre: "+ nombre);
+        System.out.println("Uusario: "+identificador);
+        System.out.println("Contrasena: "+contrasena);
     }
-    public String getCorreo(){
-        return correo;
-    }
-    public String getidentificador(){
+    public String getIdentificador() {
         return identificador;
     }
-    
+    public String getContrasena(){
+        return contrasena;
+    }
+    public String getUsuario(){
+        return identificador + "//" + contrasena;
+    }
 }
