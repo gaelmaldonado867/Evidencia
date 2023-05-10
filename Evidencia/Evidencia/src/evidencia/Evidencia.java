@@ -36,7 +36,7 @@ public class Evidencia {
             char tipoUsuario = identificador.charAt(0);
             boolean Correcto = false;
             int opcion = 0;
-            String nombre, Paciente, id;
+            String nombre, Paciente;
             switch(tipoUsuario){
                 case 'U':
                     for(Usuario usuario : usuarios){
@@ -51,6 +51,8 @@ public class Evidencia {
                                     + "4.Eliminar un paciente\n 5.Eliminar un doctor\n 6.Eliminar una cita\n 7.Ver informacion de Paciente"
                                     + "\n 8.Ver informacion de un Doctor\n 9.Ver informacion de una cita\n 10.Salir\n Ingresa la opcion deseada: ");
                             opcion = entrada.nextInt();
+                            String id;
+                            Scanner entrada2 = new Scanner(System.in);
                             switch(opcion){
                                     case 1:
                                         admin.agregarUsuarios();
@@ -72,17 +74,17 @@ public class Evidencia {
                                         break;
                                     case 7:
                                         System.out.print("Dame el identificador del paciente: ");
-                                        id = entrada.nextLine();
+                                        id = entrada2.nextLine();
                                         admin.buscarPaciente(id);
                                         break;
                                     case 8:
                                         System.out.print("Dame el identificador del doctor: ");
-                                        id = entrada.nextLine();
+                                        id = entrada2.nextLine();
                                         admin.buscarDoctor(id);
                                         break;
                                     case 9:
                                         System.out.print("Dame el identificador del paciente: ");
-                                        id = entrada.nextLine();
+                                        id = entrada2.nextLine();
                                         admin.buscarCita(id);
                                         break;
                                     case 10:
@@ -109,6 +111,8 @@ public class Evidencia {
                                     + "3.Eliminar un paciente\n 4.Eliminar una cita\n 5.Ver informacion de Paciente"
                                     + "\n 6.Ver los datos de su usuario\n 7.Ver informacion de una cita\n 8.Salir");
                             opcion = entrada.nextInt();
+                            Scanner entrada3 = new Scanner(System.in);
+                            String id;
                             switch(opcion){
                                     case 1:
                                         admin.agregarCita();
@@ -124,14 +128,14 @@ public class Evidencia {
                                         break;
                                     case 5:
                                         System.out.print("Dame el identificador del paciente: ");
-                                        id = entrada.nextLine();
+                                        id = entrada3.nextLine();
                                         admin.buscarPaciente(id);
                                         break;
                                     case 6:
                                         admin.buscarDoctor(identificador);
                                     case 7:
                                         System.out.print("Dame el identificador del paciente: ");
-                                        id = entrada.nextLine();
+                                        id = entrada3.nextLine();
                                         admin.buscarCita(id);
                                         break;
                                     case 8:
