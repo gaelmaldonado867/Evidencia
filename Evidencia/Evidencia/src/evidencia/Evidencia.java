@@ -19,6 +19,7 @@ public class Evidencia {
     public static void main(String[] args) {
         Menu();
 }
+    //MENU
     static void Menu(){
         Admin admin = new Admin();
         Scanner entrada = new Scanner(System.in);
@@ -103,7 +104,7 @@ public class Evidencia {
                         }
                     }
                     if(Correcto){
-                        while(opcion != 12){
+                        while(opcion != 8){
                             System.out.print("Bienvenido " + identificador+"\n Puedes hacer lo siguiente:\n 1.Crear una cita nueva\n 2.Crear un paciente\n "
                                     + "3.Eliminar un paciente\n 4.Eliminar una cita\n 5.Ver informacion de Paciente"
                                     + "\n 6.Ver los datos de su usuario\n 7.Ver informacion de una cita\n 8.Salir");
@@ -144,10 +145,43 @@ public class Evidencia {
                         throw new Exception("Credenciales incorrectas");
                     }
                     break;
+                case 'P':
+                    for(Paciente paciente : pacientes){
+                        if(paciente.getIdentificador().equals(identificador)&&paciente.getContrasena().equals(contrasena)){
+                            Correcto = true;
+                            break;
+                        }
+                    }
+                    if(Correcto){
+                        while(opcion != 4){
+                            System.out.print("Bienvenido " + identificador+"\n Puedes hacer lo siguiente:\n 1.Crear una cita nueva\n 2.Ver los datos de su usuario\n "
+                                    + "3.Ver informacion de una cita\n 4.Salir");
+                            opcion = entrada.nextInt();
+                            switch(opcion){
+                                    case 1:
+                                        admin.agregarCita();
+                                        break;
+                                    case 2:
+                                        admin.buscarPaciente(identificador);
+                                        break;
+                                    case 3:
+                                        admin.buscarCita(identificador);
+                                        break;
+                                    case 4:
+                                         System.out.println("Hasta luego");
+                                        break;
+                                    default:
+                                        System.out.println("Opcion Incorrecta!");
+                            }
+                    }
+            }else{
+                        throw new Exception("Credenciales incorrectas");
+                    }
+                    break;
         }
     }catch(Exception e){
-    
-    }
+        System.out.println("Eror: "+e.getMessage());
+    } 
     }
 }
 ///java -jar <path>
