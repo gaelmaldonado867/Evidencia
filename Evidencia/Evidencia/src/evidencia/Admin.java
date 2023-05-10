@@ -28,7 +28,9 @@ public class Admin {
     public Admin(){
         usuarios = new ArrayList<>();
         pacientes = new ArrayList<>();
+        pacientes.add(new Paciente("P001", "paciente123", "María González"));
         doctores = new ArrayList<>();
+        doctores.add(new Doctor("D001", "Gael Banuelos", "doctor123", "Cardiología"));
         citas = new ArrayList<>();
     }
     //Agregar usuarios, doctores y pacientes
@@ -58,7 +60,7 @@ public class Admin {
     return "El usuario es: "+resultado;
 }
     public String agregarUsuario(int nUsuarios, String contrasena) {
-        usuarios.add(new Usuario("U001", "admin123"));
+       // usuarios.add(new Usuario("U001", "admin123"));
         Scanner entrada = new Scanner(System.in);
         String identificador = "U0" + String.format("%02d", nUsuarios);
         System.out.println("El identificador es: " + identificador);
@@ -69,29 +71,38 @@ public class Admin {
 }
     //Agregar Doctor
     public String agregarDoctor(int nUsuarios, String nombre, String contrasena, String especialidad) {
-        doctores.add(new Doctor("D001", "doctor123", "Juan Perez", "Cardiología"));
         Scanner entrada = new Scanner(System.in);
         String identificador = "D0" + String.format("%02d", nUsuarios);
         System.out.println("El identificador es: " + identificador);
-        System.out.print("Ingresa la contrasena: "); contrasena = entrada.nextLine();
-        System.out.print("Ingresa el nombre completo del doctor: "); nombre = entrada.nextLine();
-        System.out.print("Ingresa la especialidad del doctor: "); especialidad = entrada.nextLine();
-        Doctor doctor = new Doctor(nombre, identificador, contrasena, especialidad);
-        doctores.add(doctor);
+        System.out.print("Ingresa la contrasena: ");
+        contrasena = entrada.nextLine();
+        System.out.print("Ingresa el nombre completo del doctor: ");
+        nombre = entrada.nextLine();
+        System.out.print("Ingresa la especialidad del doctor: ");
+        especialidad = entrada.nextLine();
+        ArrayList<Doctor> doctores = new ArrayList<>();
+       // doctores.add(new Doctor("D001", "Gael Banuelos", "doctor123", "Cardiología"));
+        Doctor doctor = new Doctor(identificador, nombre, contrasena, especialidad);
+        doctores.add(0,doctor);
         return identificador;
 }
+
     //Agregar Pacientes 
-    public String agregarPaciente(int nUsuarios,String nombre, String contrasena) {
-        pacientes.add(new Paciente("P001", "paciente123", "María González"));
+    public String agregarPaciente(int nUsuarios, String nombre, String contrasena) {
         Scanner entrada = new Scanner(System.in);
         String identificador = "P0" + String.format("%02d", nUsuarios);
-        System.out.println("El identificador nuevo es: " + identificador);
-        System.out.print("Ingresa la contrasena: "); contrasena = entrada.nextLine();
-        System.out.print("Ingresa el nombre completo del paciente: "); nombre = entrada.nextLine();
+        System.out.println("El identificador nuevo es: " + identificador); 
+        System.out.print("Ingresa la contrasena: ");
+        contrasena = entrada.nextLine();
+        System.out.print("Ingresa el nombre completo del paciente: ");
+        nombre = entrada.nextLine();
+        ArrayList<Paciente> pacientes = new ArrayList<>();
+        //pacientes.add(new Paciente("P001", "paciente123", "María González"));
         Paciente paciente = new Paciente(identificador, contrasena, nombre);
-        pacientes.add(paciente);
+        pacientes.add(0, paciente);
         return identificador;
 }
+
     //eliminar paciente
     public String eliminarPaciente(){
         Scanner entrada = new Scanner(System.in);

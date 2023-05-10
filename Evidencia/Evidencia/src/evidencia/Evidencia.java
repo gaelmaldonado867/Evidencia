@@ -23,6 +23,8 @@ public class Evidencia {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        //agregarDoctor(1, "Gael Banuelos", "doctor123", "Cardiología");
+        //agregarPaciente(1, "paciente123", "María González");
         Menu();
 }
     //MENU
@@ -42,7 +44,7 @@ public class Evidencia {
                 ArrayList<Paciente> pacientes = new ArrayList<>();
                 pacientes.add(new Paciente("P001", "paciente123", "Maria Gonzalez"));
                 ArrayList<Doctor> doctores = new ArrayList<>();
-                doctores.add(new Doctor("Juan Perez", "D001", "doctor123", "Cardiología"));
+                doctores.add(new Doctor("D001", "Gael Banuelos", "doctor123", "Cardiología"));
                 System.out.print("Ingrese su identificador: "); String identificador = entrada.nextLine(); linea.println("Usuario: "+identificador);
                 System.out.print("Ingrese su contrasena: "); String contrasena = entrada.nextLine(); linea.println("Contraseña: "+contrasena);
         //Aquí empiezan los menús de métodos
@@ -133,7 +135,7 @@ public class Evidencia {
                                         linea.println(admin.agregarCita());
                                         break;
                                     case 2:
-                                        linea.println(admin.agregarPaciente(pacientes.size(), "", ""));
+                                        linea.println(admin.agregarPaciente(1, "", ""));
                                         break;
                                     case 3:
                                         linea.println(admin.eliminarPaciente());
@@ -148,6 +150,7 @@ public class Evidencia {
                                         break;
                                     case 6:
                                         linea.println(admin.buscarDoctor(identificador));
+                                        break;
                                     case 7:
                                         System.out.print("Dame el identificador del paciente con cita: ");
                                         id = entrada3.nextLine();linea.println("Dame el identificdor del paciente con cita: "+id);
@@ -214,7 +217,7 @@ public class Evidencia {
                 ArrayList<Paciente> pacientes = new ArrayList<>();
                 pacientes.add(new Paciente("P001", "paciente123", "María González"));
                 ArrayList<Doctor> doctores = new ArrayList<>();
-                doctores.add(new Doctor("D001", "doctor123", "Juan Perez", "Cardiología"));
+                doctores.add(new Doctor("D001", "Gael Banuelos", "doctor123", "Cardiología"));
                 System.out.print("Ingrese su identificador: "); String identificador = entrada.nextLine(); linea.println("Usuario: "+identificador);
                 System.out.print("Ingrese su contrasena: "); String contrasena = entrada.nextLine(); linea.println("Contraseña: "+contrasena);
         //Aquí empiezan los menús de métodos
@@ -305,7 +308,7 @@ public class Evidencia {
                                         linea.println(admin.agregarCita());
                                         break;
                                     case 2:
-                                        linea.println(admin.agregarPaciente(pacientes.size(), "", ""));
+                                        linea.println(admin.agregarPaciente(1, "", ""));
                                         break;
                                     case 3:
                                         linea.println(admin.eliminarPaciente());
@@ -320,6 +323,7 @@ public class Evidencia {
                                         break;
                                     case 6:
                                         linea.println(admin.buscarDoctor(identificador));
+                                        break;
                                     case 7:
                                         System.out.print("Dame el identificador del paciente con cita: ");
                                         id = entrada3.nextLine();linea.println("Dame el identificdor del paciente con cita: "+id);
@@ -377,8 +381,23 @@ public class Evidencia {
                 Logger.getLogger(Evidencia.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-
     }
+
+    private static void agregarDoctor(int nUsuarios, String nombre, String contrasena, String especialidad) {
+        String identificador = "D0" + String.format("%02d", nUsuarios);
+        ArrayList<Doctor> doctores = new ArrayList<>();
+        doctores.add(new Doctor("D001", "Gael Banuelos", "doctor123", "Cardiología"));
+        Doctor doctor = new Doctor(identificador, nombre, contrasena, especialidad);
+        doctores.add(0,doctor);
+    }
+    private static void agregarPaciente(int nUsuarios, String nombre, String contrasena){
+        String identificador = "P0" + String.format("%02d", nUsuarios);
+        ArrayList<Paciente> pacientes = new ArrayList<>();
+        pacientes.add(new Paciente("P001", "paciente123", "María González"));
+        Paciente paciente = new Paciente(identificador, contrasena, nombre);
+        pacientes.add(0, paciente);
+    }
+    
 }
 ///java -jar <path>
 

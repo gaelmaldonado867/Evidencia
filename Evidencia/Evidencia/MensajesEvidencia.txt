@@ -58,4 +58,12 @@ Dame el identificador del paciente con cita: P000
 evidencia.Cita@7291c18f
 Opción 7
 Dame el identificador del paciente: P000
-evidenci
+evidenciUsuario: U001
+Contraseña: admin123
+Opción 7
+Dame el identificador del paciente: P001
+evidencia.Paciente@b4c966a
+Opción 8
+Dame el identificador del doctorD001evidencia.Doctor@2f4d3709
+Opción 10
+Hasta luego

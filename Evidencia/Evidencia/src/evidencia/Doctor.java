@@ -17,7 +17,7 @@ public class Doctor {
     private String contrasena;
     private String especialidad; 
     
-    public Doctor(String nombre, String identificador, String contrasena, String especialidad){
+    public Doctor(String identificador, String nombre, String contrasena, String especialidad){
         this.nombre = nombre;
         this.especialidad = especialidad;
         this.identificador = identificador;

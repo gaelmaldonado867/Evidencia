@@ -39,7 +39,7 @@ public class Paciente {
     public String mostrarInformacion() {
         return "Paciente: "+nombre+", Identificador: "+identificador+", Contrasena: "+contrasena;
     }
-        public void buscar(){
+    public void buscar(){
         Admin admin = new Admin();
         admin.buscarPaciente(identificador);
     }
