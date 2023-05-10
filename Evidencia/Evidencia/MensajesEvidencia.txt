@@ -1,0 +1,40 @@
+Usuario: U001
+Contraseña: admin123
+Opción 1
+null
+Opción 1
+null
+Opción 1
+null
+Opción 10
+Hasta luego
+Usuario: U001
+Contraseña: admin123
+Opción 1
+A
+Opción 1
+D
+Opción 1
+P
+Opción 10
+Hasta luego
+Usuario: U001
+Contraseña: admin123
+Opción 1
+A
+Opción 1
+D
+Opción 1
+P
+Opción 10
+Hasta luego
+Usuario: U001
+Contraseña: admin123
+Opción 1
+U000
+Opción 1
+D002
+Opción 1
+P002
+Opción 10
+Hasta luego

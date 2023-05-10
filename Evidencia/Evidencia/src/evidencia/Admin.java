@@ -4,10 +4,16 @@
  */
 package evidencia;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,12 +32,11 @@ public class Admin {
         citas = new ArrayList<>();
     }
     //Agregar usuarios, doctores y pacientes
-    public void agregarUsuarios(){
+    public String agregarUsuarios(){
     Scanner entrada = new Scanner(System.in);
     int nUsuarios = usuarios.size();
     String tipoUsuario;
-    String identificador, contrasena = null, nombre = null, especialidad = null;
-
+    String identificador, contrasena = null, nombre = null, especialidad = null, resultado = null;
     do {
         System.out.print("Que tipo de usuario desea agregar (A = Administrador, D = Doctor, P = Paciente): ");
         tipoUsuario = entrada.nextLine().toUpperCase();
@@ -39,31 +44,32 @@ public class Admin {
 
     switch (tipoUsuario) {
         case "A":
-            agregarUsuario(nUsuarios, contrasena);
+            resultado = agregarUsuario(nUsuarios, contrasena);
             break;
         case "D":
-            agregarDoctor(nUsuarios, nombre, contrasena, especialidad);
+            resultado = agregarDoctor(nUsuarios, nombre, contrasena, especialidad);
             break;
         case "P":
-            agregarPaciente(nUsuarios, nombre, contrasena);
+            resultado = agregarPaciente(nUsuarios, nombre, contrasena);
             break;
         default:
             System.out.println("¡Esa no es una opcion!");
     }
+    return "El usuario es: "+resultado;
 }
-    public void agregarUsuario(int nUsuarios, String contrasena) {
-        usuarios.add(new Usuario("U01", "admin123"));
+    public String agregarUsuario(int nUsuarios, String contrasena) {
+        usuarios.add(new Usuario("U001", "admin123"));
         Scanner entrada = new Scanner(System.in);
         String identificador = "U0" + String.format("%02d", nUsuarios);
         System.out.println("El identificador es: " + identificador);
         System.out.print("Ingresa la contrasena: "); contrasena = entrada.nextLine();
         Usuario usuario = new Usuario(identificador, contrasena);
         usuarios.add(usuario);
-        
+        return identificador;
 }
     //Agregar Doctor
-    public void agregarDoctor(int nUsuarios, String nombre, String contrasena, String especialidad) {
-        doctores.add(new Doctor("D01", "doctor123", "Juan Perez", "Cardiología"));
+    public String agregarDoctor(int nUsuarios, String nombre, String contrasena, String especialidad) {
+        doctores.add(new Doctor("D001", "doctor123", "Juan Perez", "Cardiología"));
         Scanner entrada = new Scanner(System.in);
         String identificador = "D0" + String.format("%02d", nUsuarios);
         System.out.println("El identificador es: " + identificador);
@@ -72,10 +78,11 @@ public class Admin {
         System.out.print("Ingresa la especialidad del doctor: "); especialidad = entrada.nextLine();
         Doctor doctor = new Doctor(identificador, contrasena, nombre, especialidad);
         doctores.add(doctor);
+        return identificador;
 }
     //Agregar Pacientes 
-    public void agregarPaciente(int nUsuarios,String nombre, String contrasena) {
-        pacientes.add(new Paciente("P01", "paciente123", "María González"));
+    public String agregarPaciente(int nUsuarios,String nombre, String contrasena) {
+        pacientes.add(new Paciente("P001", "paciente123", "María González"));
         Scanner entrada = new Scanner(System.in);
         String identificador = "P0" + String.format("%02d", nUsuarios);
         System.out.println("El identificador nuevo es: " + identificador);
@@ -83,9 +90,10 @@ public class Admin {
         System.out.print("Ingresa el nombre completo del paciente: "); nombre = entrada.nextLine();
         Paciente paciente = new Paciente(identificador, contrasena, nombre);
         pacientes.add(paciente);
+        return identificador;
 }
     //eliminar paciente
-    public void eliminarPaciente(){
+    public String eliminarPaciente(){
         Scanner entrada = new Scanner(System.in);
         System.out.print("Ingresa el usuario del paciente: ");
         String identificador = entrada.nextLine();
@@ -94,15 +102,16 @@ public class Admin {
                 if(paciente.getIdentificador().equals(identificador)){
                     pacientes.remove(paciente);
                     System.out.println("Paciente eliminado");
-                    return;
+                    return "Paciente eliminado";
                 }
             }
             throw new Exception("Paciente no encontrado");
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
+        return "Paciente no encontrado";
     }
-        public void eliminarDoctor(){
+        public String eliminarDoctor(){
         Scanner entrada = new Scanner(System.in);
         System.out.print("Ingresa el usuario del doctor: ");
         String identificador = entrada.nextLine();
@@ -111,15 +120,16 @@ public class Admin {
                 if(doctor.getIdentificador().equals(identificador)){
                     doctores.remove(doctor);
                     System.out.println("Doctor eliminado");
-                    return;
+                    return "Doctor eliminado";
                 }
             }
             throw new Exception("Dcotor no encontrado");
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
+        return "Doctor no encontrado";
     }
-        public void eliminarUsuario(){
+        public String eliminarUsuario(){
         Scanner entrada = new Scanner(System.in);
         System.out.print("Ingresa el usuario del paciente: ");
         String identificador = entrada.nextLine();
@@ -128,16 +138,17 @@ public class Admin {
                 if(usuario.getIdentificador().equals(identificador)){
                     usuarios.remove(usuario);
                     System.out.println("Usuario eliminado");
-                    return;
+                    return "Usuario eliminado";
                 }
             }
             throw new Exception("Usuario no encontrado");
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
+        return "Usuario no encontrado";
     }
     //Agregar cita
-        public void agregarCita() {
+        public ArrayList<Cita> agregarCita() {
         
         Scanner input = new Scanner(System.in);
         System.out.print("Ingrese fecha de la cita (dd/mm/aaaa): ");
@@ -165,48 +176,52 @@ public class Admin {
         }
         if (paciente == null) {
             System.out.println("Paciente no encontrado.");
-            return;
+            return null;
         }
 
         if (doctor == null) {
             System.out.println("Doctor no encontrado.");
-            return;
+            return null;
         }
         Cita cita = new Cita(fecha, paciente, doctor);
         citas.add(cita);
+        return citas;
     }
     //Eliminar cita
-    public void eliminarCita() {
+    public String eliminarCita() {
         Scanner input = new Scanner(System.in);
-
         System.out.print("Ingrese fecha de la cita a eliminar (dd/mm/aaaa): ");
         String fecha = input.nextLine();
+        return fecha;
     }
-    public void buscarCita(String identificador) {
+    public Cita buscarCita(String identificador) {
         for (Cita cita : citas) {
         if (cita.getPaciente().getIdentificador().equals(identificador)) {
             System.out.println(cita.mostrarInformacion());
-            return;
+            return cita;
             }
         }
         System.out.println("No se encontró ninguna cita para el paciente " + identificador);
+        return null;
     }
-        public void buscarPaciente(String identificador) {
+        public Paciente buscarPaciente(String identificador) {
         for (Paciente paciente : pacientes) {
         if (paciente.getIdentificador().equals(identificador)) {
             System.out.println(paciente.mostrarInformacion());
-            return;
+            return paciente;
             }
         }
         System.out.println("No se encontró ningun paciente: " + identificador);
+        return null;
     }
-        public void buscarDoctor(String identificador) {
+        public Doctor buscarDoctor(String identificador) {
         for (Doctor doctor : doctores) {
         if (doctor.getIdentificador().equals(identificador)) {
             System.out.println(doctor.mostrarInformacion());
-            return;
+            return doctor;
             }
         }
         System.out.println("No se encontró ningun doctor: " + identificador);
+        return null;
     }
 }
