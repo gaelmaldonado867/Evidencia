@@ -76,7 +76,7 @@ public class Admin {
         System.out.print("Ingresa la contrasena: "); contrasena = entrada.nextLine();
         System.out.print("Ingresa el nombre completo del doctor: "); nombre = entrada.nextLine();
         System.out.print("Ingresa la especialidad del doctor: "); especialidad = entrada.nextLine();
-        Doctor doctor = new Doctor(identificador, contrasena, nombre, especialidad);
+        Doctor doctor = new Doctor(nombre, identificador, contrasena, especialidad);
         doctores.add(doctor);
         return identificador;
 }
@@ -188,11 +188,23 @@ public class Admin {
         return citas;
     }
     //Eliminar cita
-    public String eliminarCita() {
-        Scanner input = new Scanner(System.in);
-        System.out.print("Ingrese fecha de la cita a eliminar (dd/mm/aaaa): ");
-        String fecha = input.nextLine();
-        return fecha;
+        public String eliminarCita(){
+        Scanner entrada = new Scanner(System.in);
+        System.out.print("Ingresa el usuario del paciente: ");
+        String identificador = entrada.nextLine();
+        try{
+            for(Cita cita : citas){
+                if(cita.getPaciente().getIdentificador().equals(identificador)){
+                    usuarios.remove(cita);
+                    System.out.println("Cita eliminada");
+                    return "Cita eliminada";
+                }
+            }
+            throw new Exception("Cita no encontrada");
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return "Cita no encontrada";
     }
     public Cita buscarCita(String identificador) {
         for (Cita cita : citas) {

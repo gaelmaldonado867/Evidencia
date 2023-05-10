@@ -40,9 +40,9 @@ public class Evidencia {
                 ArrayList<Usuario> usuarios = new ArrayList<>();
                 usuarios.add(new Usuario("U001", "admin123"));
                 ArrayList<Paciente> pacientes = new ArrayList<>();
-                pacientes.add(new Paciente("P001", "paciente123", "María González"));
+                pacientes.add(new Paciente("P001", "paciente123", "Maria Gonzalez"));
                 ArrayList<Doctor> doctores = new ArrayList<>();
-                doctores.add(new Doctor("D001", "doctor123", "Juan Perez", "Cardiología"));
+                doctores.add(new Doctor("Juan Perez", "D001", "doctor123", "Cardiología"));
                 System.out.print("Ingrese su identificador: "); String identificador = entrada.nextLine(); linea.println("Usuario: "+identificador);
                 System.out.print("Ingrese su contrasena: "); String contrasena = entrada.nextLine(); linea.println("Contraseña: "+contrasena);
         //Aquí empiezan los menús de métodos
@@ -124,7 +124,7 @@ public class Evidencia {
                             while(opcion != 8){
                                 System.out.print("Bienvenido " + identificador+"\n Puedes hacer lo siguiente:\n 1.Crear una cita nueva\n 2.Crear un paciente\n "
                                     + "3.Eliminar un paciente\n 4.Eliminar una cita\n 5.Ver informacion de Paciente"
-                                    + "\n 6.Ver los datos de su usuario\n 7.Ver informacion de una cita\n 8.Salir");
+                                    + "\n 6.Ver los datos de su usuario\n 7.Ver informacion de una cita\n 8.Salir\n Ingresa la opcion deseada: ");
                                 opcion = entrada.nextInt(); linea.println("Opción "+opcion);
                                 Scanner entrada3 = new Scanner(System.in);
                                 String id;
@@ -174,7 +174,7 @@ public class Evidencia {
                         if(Correcto){
                             while(opcion != 4){
                                 System.out.print("Bienvenido " + identificador+"\n Puedes hacer lo siguiente:\n 1.Crear una cita nueva\n 2.Ver los datos de su usuario\n "
-                                    + "3.Ver informacion de una cita\n 4.Salir");
+                                    + "3.Ver informacion de una cita\n 4.Salir\n Ingresa la opcion deseada: ");
                                 opcion = entrada.nextInt();linea.println("Opción "+opcion);
                                 switch(opcion){
                                     case 1:
@@ -296,7 +296,7 @@ public class Evidencia {
                             while(opcion != 8){
                                 System.out.print("Bienvenido " + identificador+"\n Puedes hacer lo siguiente:\n 1.Crear una cita nueva\n 2.Crear un paciente\n "
                                     + "3.Eliminar un paciente\n 4.Eliminar una cita\n 5.Ver informacion de Paciente"
-                                    + "\n 6.Ver los datos de su usuario\n 7.Ver informacion de una cita\n 8.Salir");
+                                    + "\n 6.Ver los datos de su usuario\n 7.Ver informacion de una cita\n 8.Salir\n Ingresa la opcion deseada: ");
                                 opcion = entrada.nextInt(); linea.println("Opción "+opcion);
                                 Scanner entrada3 = new Scanner(System.in);
                                 String id;
@@ -346,7 +346,7 @@ public class Evidencia {
                         if(Correcto){
                             while(opcion != 4){
                                 System.out.print("Bienvenido " + identificador+"\n Puedes hacer lo siguiente:\n 1.Crear una cita nueva\n 2.Ver los datos de su usuario\n "
-                                    + "3.Ver informacion de una cita\n 4.Salir");
+                                    + "3.Ver informacion de una cita\n 4.Salir\n Ingresa la opcion deseada: ");
                                 opcion = entrada.nextInt();linea.println("Opción "+opcion);
                                 switch(opcion){
                                     case 1:

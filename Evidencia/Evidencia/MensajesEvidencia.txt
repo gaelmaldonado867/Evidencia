@@ -38,3 +38,24 @@ Opción 1
 P002
 Opción 10
 Hasta luego
+Usuario: U001
+Contraseña: admin123
+Opción 1
+El usuario es: D000
+Opción 1
+El usuario es: P000
+Opción 8
+Dame el identificador del doctorD000evidencia.Doctor@4e50df2e
+Opción 2
+[evidencia.Cita@7291c18f]
+Opción 9
+Dame el identificador del paciente con cita: P000
+evidencia.Cita@7291c18f
+Opción 2
+[evidencia.Cita@7291c18f, evidencia.Cita@34a245ab]
+Opción 9
+Dame el identificador del paciente con cita: P000
+evidencia.Cita@7291c18f
+Opción 7
+Dame el identificador del paciente: P000
+evidenci
