@@ -6,6 +6,7 @@ package evidencia;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -51,6 +52,7 @@ public class Admin {
     }
 }
     public void agregarUsuario(int nUsuarios, String contrasena) {
+        usuarios.add(new Usuario("U01", "admin123"));
         Scanner entrada = new Scanner(System.in);
         String identificador = "U0" + String.format("%02d", nUsuarios);
         System.out.println("El identificador es: " + identificador);
@@ -61,6 +63,7 @@ public class Admin {
 }
     //Agregar Doctor
     public void agregarDoctor(int nUsuarios, String nombre, String contrasena, String especialidad) {
+        doctores.add(new Doctor("D01", "doctor123", "Juan Perez", "Cardiología"));
         Scanner entrada = new Scanner(System.in);
         String identificador = "D0" + String.format("%02d", nUsuarios);
         System.out.println("El identificador es: " + identificador);
@@ -72,6 +75,7 @@ public class Admin {
 }
     //Agregar Pacientes 
     public void agregarPaciente(int nUsuarios,String nombre, String contrasena) {
+        pacientes.add(new Paciente("P01", "paciente123", "María González"));
         Scanner entrada = new Scanner(System.in);
         String identificador = "P0" + String.format("%02d", nUsuarios);
         System.out.println("El identificador nuevo es: " + identificador);
@@ -100,7 +104,7 @@ public class Admin {
     }
         public void eliminarDoctor(){
         Scanner entrada = new Scanner(System.in);
-        System.out.print("Ingresa el usuario del paciente: ");
+        System.out.print("Ingresa el usuario del doctor: ");
         String identificador = entrada.nextLine();
         try{
             for(Doctor doctor : doctores){
@@ -133,9 +137,9 @@ public class Admin {
         }
     }
     //Agregar cita
-public void agregarCita() {
+        public void agregarCita() {
+        
         Scanner input = new Scanner(System.in);
-
         System.out.print("Ingrese fecha de la cita (dd/mm/aaaa): ");
         String fecha = input.nextLine();
         System.out.print("Ingrese identificador del paciente: ");
@@ -177,6 +181,32 @@ public void agregarCita() {
 
         System.out.print("Ingrese fecha de la cita a eliminar (dd/mm/aaaa): ");
         String fecha = input.nextLine();
-	}
-    
+    }
+    public void buscarCita(String identificador) {
+        for (Cita cita : citas) {
+        if (cita.getPaciente().getIdentificador().equals(identificador)) {
+            System.out.println(cita.mostrarInformacion());
+            return;
+            }
+        }
+        System.out.println("No se encontró ninguna cita para el paciente " + identificador);
+    }
+        public void buscarPaciente(String identificador) {
+        for (Paciente paciente : pacientes) {
+        if (paciente.getIdentificador().equals(identificador)) {
+            System.out.println(paciente.mostrarInformacion());
+            return;
+            }
+        }
+        System.out.println("No se encontró ningun paciente: " + identificador);
+    }
+        public void buscarDoctor(String identificador) {
+        for (Doctor doctor : doctores) {
+        if (doctor.getIdentificador().equals(identificador)) {
+            System.out.println(doctor.mostrarInformacion());
+            return;
+            }
+        }
+        System.out.println("No se encontró ningun doctor: " + identificador);
+    }
 }

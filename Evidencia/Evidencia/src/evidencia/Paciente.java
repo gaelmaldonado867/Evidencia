@@ -27,11 +27,6 @@ public class Paciente {
     public String getNombre(){
         return nombre;
     }   
-    public void mostrarInformacion() {
-        System.out.println("Nombre: "+ nombre);
-        System.out.println("Uusario: "+identificador);
-        System.out.println("Contrasena: "+contrasena);
-    }
     public String getIdentificador() {
         return identificador;
     }
@@ -40,5 +35,12 @@ public class Paciente {
     }
     public String getUsuario(){
         return identificador + "//" + contrasena;
+    }
+    public String mostrarInformacion() {
+        return "Paciente: "+nombre+", Identificador: "+identificador+", Contrasena: "+contrasena;
+    }
+        public void buscar(){
+        Admin admin = new Admin();
+        admin.buscarPaciente(identificador);
     }
 }

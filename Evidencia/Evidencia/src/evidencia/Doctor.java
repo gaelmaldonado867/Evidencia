@@ -44,12 +44,11 @@ public class Doctor {
     public String getUsuario(){
         return identificador + "//" + contrasena;
     }
-     public void mostrarInformacion() {
-        System.out.println("Nombre: " + nombre);
-        System.out.println("Especialidad: " + especialidad);
-        System.out.println("Identificador: " + identificador);
-        System.out.println("Contrasena: "+ contrasena);
+     public String mostrarInformacion() {
+         return "Doctor: "+nombre+", Especialidad: "+especialidad+", Identificador: "+identificador+", Contrasena: "+contrasena;
+     }
+    public void buscar(){
+        Admin admin = new Admin();
+        admin.buscarDoctor(identificador);
     }
-
-
 } 

@@ -42,9 +42,11 @@ public class Cita {
         Admin admin = new Admin();
         admin.eliminarCita();
     }
-    public void mostrarInformacion(){
-        System.out.println("Fecha: "+fecha);
-        System.out.println("Paciente: "+ paciente);
-        System.out.println("Doctor: "+ doctor);
+    public String mostrarInformacion(){
+        return "Fecha: "+fecha+" ,Paciente: "+paciente.getNombre()+", Doctor: "+doctor.getNombre();
+    }
+    public void buscar(){
+        Admin admin = new Admin();
+        admin.buscarCita(paciente.getIdentificador());
     }
 }
